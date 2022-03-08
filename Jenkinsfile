@@ -26,7 +26,7 @@ maven 'maven'
         sh "docker push ayyappa376/java-web-app "
     }
    }  
-   stages('run container'){
+   stage('run container'){
     steps('Run Docker Image In Dev Server'){
         
         def dockerRun = ' docker run  -d -p 8080:8080 --name javawebapp ayyappa376/java-web-app '
