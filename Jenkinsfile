@@ -28,7 +28,8 @@ maven 'maven'
    }  
    stage('run container'){
     steps{
-        sh "docker rm -f $(docker ps -aq)"
+        sh "docker stop javawebapp"
+        sh "docker rm javawebapp"
         sh "docker run -d --name javawebapp -p 9090:9090 ayyappa376/java-web-app"
     }
    }  
