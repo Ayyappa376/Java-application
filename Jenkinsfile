@@ -22,10 +22,8 @@ maven 'maven'
    }
    stage('push image'){
     steps{
-    withCredentials([string(credentialsId: '', variable: 'docker_pwd')]) {
-        sh "docker login -u ayyappa376 -p ${docker_pwd}"
+        sh "docker login -u ayyappa376 -p ayyappa@76"
         sh "docker push ayyappa376/java-web-app "
-     }
     }
    }    
     
