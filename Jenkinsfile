@@ -1,6 +1,6 @@
 pipeline{
  agent any
- def mavenHome= tool name: "maven"
+  def mavenHome = tool name: "maven"
  stages{
   stage('checkout'){
    step{
