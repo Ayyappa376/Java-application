@@ -17,7 +17,7 @@ maven 'maven'
    }
    stage('build image'){
     steps{
-     sh "docker build -t ayyappa376/java-web-app"
+     sh "docker build -t ayyappa376/java-web-app ."
     }
    }
  }
