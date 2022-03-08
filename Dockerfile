@@ -1,4 +1,4 @@
-FROM openjdk:11-alpine
+FROM openjdk
 MAINTAINER AYYAPPA
 RUN apk update && apk add /bin/sh
 RUN mkdir -P  /opt/app
