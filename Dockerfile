@@ -1,6 +1,7 @@
-FROM openjdk
-MAINTAINER AYYAPPA 
-RUN mkdir -P  /opt/app
+FROM openjdk:8-alpine
+MAINTAINER AYYAPPA
+RUN apt update
+RUN mkdir -P /opt/app
 ENV PROJECT_HOME /opt/app
 COPY target/java-web-application.jar $PROJECT_HOME/java-web-application.jar
 WORKDIR $PROJECT_HOME
