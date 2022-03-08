@@ -3,22 +3,22 @@ pipeline{
   def mavenHome = tool name: "maven"
  stages{
   stage('checkout'){
-   step{
+   steps{
     git 'https://github.com/Ayyappa376/Java-application.git'
    }
   }
   stage('build'){
-   step{
-    sh "docker build -t Dockerfile ayyappa376/java-web-app"
+   steps{
+    sh "${mavenHome}/bin/mvn clean package"
    }
   }
   stage('build image'){
-   step{
-
+   steps{
+     sh "docker build -t Dockerfile ayyappa376/java-web-app"
    }
   }
   stage('docker push'){
-   step{
+   steps{
    }
   }
  }
