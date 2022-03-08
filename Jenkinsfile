@@ -27,14 +27,17 @@ maven 'maven'
     }
    }  
    stage('run container'){
-    steps{
-        def dockerRun = "docker run -d --name javawebapp -p 9090:9090 ayyappa376/java-web-app"
-        sshagent(['docker_server']) {
-           sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.154.199 docker stop javawebapp || true'
-           sh 'ssh  ubuntu@13.233.154.199 docker rm javawebapp || true'
-           sh 'ssh  ubuntu@13.233.154.199 docker rmi -f  $(docker images -q) || true'
-           sh "ssh  ubuntu@13.233.154.199 ${dockerRun}" 
-         } 
+    stage('Run Docker Image In Dev Server'){
+        
+        def dockerRun = ' docker run  -d -p 8080:8080 --name javawebapp ayyappa376/java-web-app '
+         
+         sshagent(['DOCKER_SERVER']) {
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@ docker stop java-web-app || true'
+          sh 'ssh  ubuntu@13.233.154.199 docker rm javawebapp || true'
+          sh 'ssh  ubuntu@13.233.154.199 docker rmi -f  $(docker images -q) || true'
+          sh "ssh  ubuntu@13.233.154.199 ${dockerRun}"
+       }
+       
     }
    }  
     
