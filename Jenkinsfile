@@ -25,7 +25,12 @@ maven 'maven'
         sh "docker login -u ayyappa376 -p ayyappa@76"
         sh "docker push ayyappa376/java-web-app "
     }
-   }    
+   }  
+   stage('run container'){
+    steps{
+        sh "docker run -d --name javawebapp -p 8080:8080 ayyappa376/java-web-app"
+    }
+   }  
     
     }
        
