@@ -1,5 +1,11 @@
-node{
-  def mavenHome =  tool name: "maven", type: "maven" 
+pipeline{
+
+agent any
+
+tools{
+maven 'maven'
+
+}
     stages{
      stage('checkout'){
       steps{
@@ -8,7 +14,7 @@ node{
     }
    stage('build'){
     steps{
-     sh "${mavenHome}/bin/mvn clean package"
+     sh "mvn clean package"
     }
    }
    stage('build image'){
