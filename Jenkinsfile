@@ -1,5 +1,5 @@
 node{
-  def mavenHome =  tool name: "Maven", type: "maven" 
+  def mavenHome =  tool name: "maven", type: "maven" 
     stages{
      stage('checkout'){
       steps{
