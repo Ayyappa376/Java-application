@@ -30,7 +30,7 @@ maven 'maven'
     steps{
         sh "docker stop javawebapp"
         sh "docker rm javawebapp"
-        sh "docker run -d --name javawebapp -p 8080:9090 ayyappa376/java-web-app"
+        sh "docker run -d --name javawebapps -p 8080:9090 ayyappa376/java-web-app"
     }
    }  
     
