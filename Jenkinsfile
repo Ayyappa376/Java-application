@@ -1,5 +1,4 @@
-pipeline{
- agent any
+node{
   def mavenHome =  tool name: "Maven", type: "maven" 
     stages{
      stage('checkout'){
