@@ -1,25 +1,22 @@
 pipeline{
  agent any
-  def mavenHome = tool name: "maven"
- stages{
-  stage('checkout'){
-   steps{
-    git 'https://github.com/Ayyappa376/Java-application.git'
+  def mavenHome = tool name: "maven", type: "maven" 
+    stages{
+     stage('checkout'){
+      steps{
+       git 'https://github.com/Ayyappa376/Java-application.git'
+     }
+    }
+   stage('build'){
+    steps{
+     sh "${mavenHome}/bin/mvn clean package"
+    }
    }
-  }
-  stage('build'){
-   steps{
-    sh "${mavenHome}/bin/mvn clean package"
-   }
-  }
-  stage('build image'){
-   steps{
+   stage('build image'){
+    steps{
      sh "docker build -t Dockerfile ayyappa376/java-web-app"
+    }
    }
-  }
-  stage('docker push'){
-   steps{
-   }
-  }
  }
 }
+ 
