@@ -1,0 +1,38 @@
+@Library('My-Jenkins-SharedLibrary') _master
+pipeline {
+    agent any
+    tools {
+        maven 'maven'
+    }
+    /*environment{
+        staging_server = '15.207.85.64, 15.207.85.65'
+        //staging_server_2 = '15.207.85.65'
+        version = '2.2'
+        system = 'staging'
+    }*/
+
+stages{
+
+        stage('Java Checkout'){
+            steps {
+                script{
+                    sourcecheckout("","master")
+                }
+            }
+        }
+
+      
+    
+        stage('Java Build'){
+            steps {
+                script{
+                    java_build()
+                }
+            }
+        }
+
+    }
+}
+
+
+
