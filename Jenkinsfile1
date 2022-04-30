@@ -16,7 +16,7 @@ stages{
         stage('Java Checkout'){
             steps {
                 script{
-                    sourcecheckout("","master")
+                    SourceCheckout("https://github.com/Ayyappa376/Java-application.git","master")
                 }
             }
         }
